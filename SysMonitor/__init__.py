@@ -1,6 +1,4 @@
-import time, os, commands,socket
-
-
+import time, os, commands, socket
 class Monitor():
         cpu_info = {}
 
@@ -9,6 +7,7 @@ class Monitor():
         _mem_usage_info_path = "/proc/meminfo"
         _net_usage_info_path = "/proc/net/dev"
         _load_avg_info_path = "/proc/loadavg"
+
 
         _f_cpu_usage = None
         _f_mem_usage = None
@@ -198,11 +197,13 @@ class Monitor():
                 df = i.split(' ')
                 if df[1] == '/':
                     return df[0]
-        
+
         def get_hostname(self):
             return socket.gethostname()
         
         def get_time(self):
             return time.strftime('%Y-%m-%d %H:%M:%S',  time.localtime(time.time()))
+
+
 
 monitor = Monitor()
